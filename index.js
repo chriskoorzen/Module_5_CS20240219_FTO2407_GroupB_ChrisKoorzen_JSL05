@@ -11,6 +11,18 @@ const songs = [
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
     { title: "I'm Not in Love", artist: "10cc", genre: "Pop" },
     { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
+
+    { title: "War of the Gods", artist: "Amon Amarth", genre: "Metal" },
+    { title: "Feuer Frei!", artist: "Rammstein", genre: "Metal" },
+    { title: "Black Fire Upon Us", artist: "Dethklok", genre: "Metal" },
+    { title: "Dragula", artist: "Rob Zombie", genre: "Metal" },
+    { title: "Let There Be Rock", artist: "AC/DC", genre: "Metal" },
+
+    { title: "You Don't Know", artist: "Eminem", genre: "Rap" },
+    { title: "In Da Club", artist: "50 Cent", genre: "Rap" },
+    { title: "Thinkin of a Drive By", artist: "DVRST", genre: "Rap" },
+    { title: "Kush ft. Snoop Dogg, Akon", artist: "Dr. Dre", genre: "Rap" },
+    { title: "X Gon' Give It To Ya", artist: "DMX", genre: "Rap" },
     // Feel free to add even more songs
 ];
 
@@ -19,6 +31,9 @@ const songs = [
 const guardians = {
     "Star-Lord": "Rock",
     "Gamora": "Pop",
+    "Drax": "R&B",
+    "Rocket": "Metal",
+    "Groot": "Rap",
     // Add preferences for Drax, Rocket, and Groot
 };
 
