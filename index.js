@@ -51,8 +51,8 @@ function generatePlaylist(guardians, songs) {
             if (!genrePlaylists.hasOwnProperty(song.genre)){
                 genrePlaylists[song.genre] = "";
             }
-            genrePlaylists[song.genre] = genrePlaylists[song.genre]
-                + `<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`;
+            genrePlaylists[song.genre] = 
+                genrePlaylists[song.genre].concat(`<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`);
         }
     );
     
