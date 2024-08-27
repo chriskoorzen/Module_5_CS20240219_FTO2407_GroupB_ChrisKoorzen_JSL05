@@ -6,7 +6,6 @@ const songs = [
     { title: "Spirit in the Sky", artist: "Norman Greenbaum", genre: "Rock", youtubeID: "W2msh0jut2Y" },
     { title: "Cherry Bomb", artist: "The Runaways", genre: "Rock", youtubeID: "_EBvXpjudf8" },
     { title: "Escape (The Piña Colada Song)", artist: "Rupert Holmes", genre: "Pop", youtubeID: "FXG_I_tf_i4" },
-    { title: "O-O-H Child", artist: "The Five Stairsteps", genre: "R&B", youtubeID: "dguz0IsCuKU" },
     { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B", youtubeID: "ABfQuZqq8wg" },
     { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock", youtubeID: "BA4rSO-h9Io" },
     { title: "I'm Not in Love", artist: "10cc", genre: "Pop", youtubeID: "STugQ0X1NoI" },
@@ -23,6 +22,13 @@ const songs = [
     { title: "Thinkin of a Drive By", artist: "DVRST", genre: "Rap", youtubeID: "LiovUkBWOos" },
     { title: "Kush ft. Snoop Dogg, Akon", artist: "Dr. Dre", genre: "Rap", youtubeID: "BuJDaOVz2qY" },
     { title: "X Gon' Give It To Ya", artist: "DMX", genre: "Rap", youtubeID: "vkOJ9uNj9EY" },
+
+    { title: "Pony", artist: "Ginuwine", genre: "R&B", youtubeID: "lbnoG2dsUk0" },
+    { title: "My Girl", artist: "The Temptations", genre: "R&B", youtubeID: "y3KJ7d2qBoA" },
+    { title: "Fantasy", artist: "Mariah Carey", genre: "R&B", youtubeID: "qq09UkPRdFY" },
+    { title: "Stand By Me", artist: "Ben E. King", genre: "R&B", youtubeID: "eJ4i-QbXG54" },
+
+    { title: "I'm a Believer", artist: "The Monkees", genre: "Pop", youtubeID: "4PQAqprjOuA" },
 ];
 
 
@@ -58,6 +64,7 @@ function generatePlaylist(guardians, songs) {
     );
     
     // From "guardian" entries, match up genre to HTMLPlaylist, and inject values.
+    // Create a single string of valid HTML from array returned by map().
     const songlistHTML = Object.entries(guardians).map(
         ([name, genre]) => {
             return `<div class="playlist">
@@ -75,5 +82,3 @@ function generatePlaylist(guardians, songs) {
 
 // Call generatePlaylist and display the playlists for each Guardian
 generatePlaylist(guardians, songs);
-
-
