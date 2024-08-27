@@ -44,14 +44,16 @@ function generatePlaylist(guardians, songs) {
     // Sort song list based on genre
     // and immediately create partial HTML
     // (Benefit of passing over song array ONCE)
-    const genreHTMLPlaylist = {};
+    const playlist = {};
     songs.forEach( 
         (song) => {
-            if (!genreHTMLPlaylist.hasOwnProperty(song.genre)){
-                genreHTMLPlaylist[song.genre] = "";
+            if (!playlist.hasOwnProperty(song.genre)){
+                playlist[song.genre] = { playlistHTML:"", songIDS:"" };
             }
-            genreHTMLPlaylist[song.genre] = 
-                genreHTMLPlaylist[song.genre].concat(`<p class="song"><span class="song-title"><a target=”_blank” href="https://www.youtube.com/watch?v=${song.youtubeID}" >${song.title}</a></span> by ${song.artist}</p>`);
+            playlist[song.genre].playlistHTML = 
+                playlist[song.genre].playlistHTML.concat(`<p class="song"><span class="song-title"><a target=”_blank” href="https://www.youtube.com/watch?v=${song.youtubeID}" >${song.title}</a></span> by ${song.artist}</p>`);
+            
+            playlist[song.genre].songIDS = playlist[song.genre].songIDS.concat(song.youtubeID, ",");
         }
     );
     
@@ -59,8 +61,10 @@ function generatePlaylist(guardians, songs) {
     const songlistHTML = Object.entries(guardians).map(
         ([name, genre]) => {
             return `<div class="playlist">
-                        <h3>${name}'s Playlist</h3>
-                        ${ genreHTMLPlaylist[genre] }
+                        <h3><a target=”_blank” href="https://www.youtube.com/watch_videos?video_ids=${ playlist[genre].songIDS }" >
+                            ${name}'s Playlist
+                        </a></h3>
+                        ${ playlist[genre].playlistHTML }
                     </div>`;
         }
     ).reduce((accumulator, currentValue) => accumulator.concat(currentValue), "");    // Being fancy. Does the same thing as Array.join("") method in this case
