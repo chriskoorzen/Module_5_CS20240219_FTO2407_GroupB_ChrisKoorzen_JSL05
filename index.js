@@ -1,4 +1,4 @@
-// Array of song objects. Add at least 5 songs with title, artist, and genre properties.
+// Array of song objects.
 const songs = [
     { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
     { title: "Moonage Daydream", artist: "David Bowie", genre: "Rock" },
@@ -23,7 +23,6 @@ const songs = [
     { title: "Thinkin of a Drive By", artist: "DVRST", genre: "Rap" },
     { title: "Kush ft. Snoop Dogg, Akon", artist: "Dr. Dre", genre: "Rap" },
     { title: "X Gon' Give It To Ya", artist: "DMX", genre: "Rap" },
-    // Feel free to add even more songs
 ];
 
 
@@ -34,9 +33,9 @@ const guardians = {
     "Drax": "R&B",
     "Rocket": "Metal",
     "Groot": "Rap",
-    // Add preferences for Drax, Rocket, and Groot
 };
 
+// Get reference to container
 const playlistDisplay = document.getElementById("playlists");
 
 // Function to generate playlist based on preferred genre
@@ -45,27 +44,28 @@ function generatePlaylist(guardians, songs) {
     // Sort song list based on genre
     // and immediately create partial HTML
     // (Benefit of passing over song array ONCE)
-    const genrePlaylists = {};
+    const genreHTMLPlaylist = {};
     songs.forEach( 
         (song) => {
-            if (!genrePlaylists.hasOwnProperty(song.genre)){
-                genrePlaylists[song.genre] = "";
+            if (!genreHTMLPlaylist.hasOwnProperty(song.genre)){
+                genreHTMLPlaylist[song.genre] = "";
             }
-            genrePlaylists[song.genre] = 
-                genrePlaylists[song.genre].concat(`<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`);
+            genreHTMLPlaylist[song.genre] = 
+                genreHTMLPlaylist[song.genre].concat(`<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`);
         }
     );
     
+    // From "guardian" entries, match up genre to HTMLPlaylist, and inject values.
     const songlistHTML = Object.entries(guardians).map(
         ([name, genre]) => {
-            return `
-            <div class="playlist">
-                <h3>${name}'s Playlist</h3>
-                ${ genrePlaylists[genre] }
-            </div>`;
+            return `<div class="playlist">
+                        <h3>${name}'s Playlist</h3>
+                        ${ genreHTMLPlaylist[genre] }
+                    </div>`;
         }
-    ).reduce((accumulator, currentValue) => accumulator + currentValue, "");
+    ).reduce((accumulator, currentValue) => accumulator.concat(currentValue), "");    // Being fancy. Does the same thing as Array.join("") method in this case
 
+    // Update Display
     playlistDisplay.innerHTML = songlistHTML;
 }
 
