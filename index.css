@@ -14,6 +14,11 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for headings */
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .playlist {
     margin: 20px;
     padding: 20px; /* Increased padding */

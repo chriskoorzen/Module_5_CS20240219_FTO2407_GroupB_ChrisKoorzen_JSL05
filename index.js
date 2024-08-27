@@ -1,28 +1,28 @@
 // Array of song objects.
 const songs = [
-    { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop" },
-    { title: "Moonage Daydream", artist: "David Bowie", genre: "Rock" },
-    { title: "I Want You Back", artist: "The Jackson 5", genre: "Pop" },
-    { title: "Spirit in the Sky", artist: "Norman Greenbaum", genre: "Rock" },
-    { title: "Cherry Bomb", artist: "The Runaways", genre: "Rock" },
-    { title: "Escape (The Piña Colada Song)", artist: "Rupert Holmes", genre: "Pop" },
-    { title: "O-O-H Child", artist: "The Five Stairsteps", genre: "R&B" },
-    { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B" },
-    { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock" },
-    { title: "I'm Not in Love", artist: "10cc", genre: "Pop" },
-    { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock" },
+    { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop", youtubeID: "bCHvzQnL8kQ" },
+    { title: "Moonage Daydream", artist: "David Bowie", genre: "Rock", youtubeID: "RPUAldgS7Sg" },
+    { title: "I Want You Back", artist: "The Jackson 5", genre: "Pop", youtubeID: "iiGY7zX7VqQ" },
+    { title: "Spirit in the Sky", artist: "Norman Greenbaum", genre: "Rock", youtubeID: "W2msh0jut2Y" },
+    { title: "Cherry Bomb", artist: "The Runaways", genre: "Rock", youtubeID: "_EBvXpjudf8" },
+    { title: "Escape (The Piña Colada Song)", artist: "Rupert Holmes", genre: "Pop", youtubeID: "FXG_I_tf_i4" },
+    { title: "O-O-H Child", artist: "The Five Stairsteps", genre: "R&B", youtubeID: "dguz0IsCuKU" },
+    { title: "Ain't No Mountain High Enough", artist: "Marvin Gaye & Tammi Terrell", genre: "R&B", youtubeID: "ABfQuZqq8wg" },
+    { title: "Come and Get Your Love", artist: "Redbone", genre: "Rock", youtubeID: "BA4rSO-h9Io" },
+    { title: "I'm Not in Love", artist: "10cc", genre: "Pop", youtubeID: "STugQ0X1NoI" },
+    { title: "Fooled Around and Fell in Love", artist: "Elvin Bishop", genre: "Rock", youtubeID: "JmKfP6DzzuU" },
 
-    { title: "War of the Gods", artist: "Amon Amarth", genre: "Metal" },
-    { title: "Feuer Frei!", artist: "Rammstein", genre: "Metal" },
-    { title: "Black Fire Upon Us", artist: "Dethklok", genre: "Metal" },
-    { title: "Dragula", artist: "Rob Zombie", genre: "Metal" },
-    { title: "Let There Be Rock", artist: "AC/DC", genre: "Metal" },
+    { title: "War of the Gods", artist: "Amon Amarth", genre: "Metal", youtubeID: "FVAQQujgSxQ" },
+    { title: "Feuer Frei!", artist: "Rammstein", genre: "Metal", youtubeID: "ZkW-K5RQdzo" },
+    { title: "Black Fire Upon Us", artist: "Dethklok", genre: "Metal", youtubeID: "hANbfPkwJm8" },
+    { title: "Dragula", artist: "Rob Zombie", genre: "Metal", youtubeID: "EqQuihD0hoI" },
+    { title: "Let There Be Rock", artist: "AC/DC", genre: "Metal", youtubeID: "3f2g4RMfhS0" },
 
-    { title: "You Don't Know", artist: "Eminem", genre: "Rap" },
-    { title: "In Da Club", artist: "50 Cent", genre: "Rap" },
-    { title: "Thinkin of a Drive By", artist: "DVRST", genre: "Rap" },
-    { title: "Kush ft. Snoop Dogg, Akon", artist: "Dr. Dre", genre: "Rap" },
-    { title: "X Gon' Give It To Ya", artist: "DMX", genre: "Rap" },
+    { title: "You Don't Know", artist: "Eminem", genre: "Rap", youtubeID: "ngH0fkiNo-g" },
+    { title: "In Da Club", artist: "50 Cent", genre: "Rap", youtubeID: "5qm8PH4xAss" },
+    { title: "Thinkin of a Drive By", artist: "DVRST", genre: "Rap", youtubeID: "LiovUkBWOos" },
+    { title: "Kush ft. Snoop Dogg, Akon", artist: "Dr. Dre", genre: "Rap", youtubeID: "BuJDaOVz2qY" },
+    { title: "X Gon' Give It To Ya", artist: "DMX", genre: "Rap", youtubeID: "vkOJ9uNj9EY" },
 ];
 
 
@@ -51,7 +51,7 @@ function generatePlaylist(guardians, songs) {
                 genreHTMLPlaylist[song.genre] = "";
             }
             genreHTMLPlaylist[song.genre] = 
-                genreHTMLPlaylist[song.genre].concat(`<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`);
+                genreHTMLPlaylist[song.genre].concat(`<p class="song"><span class="song-title"><a target=”_blank” href="https://www.youtube.com/watch?v=${song.youtubeID}" >${song.title}</a></span> by ${song.artist}</p>`);
         }
     );
     
