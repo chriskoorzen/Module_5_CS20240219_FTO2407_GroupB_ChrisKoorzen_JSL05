@@ -43,17 +43,16 @@ const playlistDisplay = document.getElementById("playlists");
 function generatePlaylist(guardians, songs) {
 
     // Sort song list based on genre
-    // and immediately create HTML
+    // and immediately create partial HTML
     // (Benefit of passing over song array ONCE)
     const genrePlaylists = {};
     songs.forEach( 
         (song) => {
             if (!genrePlaylists.hasOwnProperty(song.genre)){
-                genrePlaylists[song.genre] = new Array();
+                genrePlaylists[song.genre] = "";
             }
-            genrePlaylists[song.genre].push(
-                `<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`
-            );
+            genrePlaylists[song.genre] = genrePlaylists[song.genre]
+                + `<p class="song"><span class="song-title">${song.title}</span> by ${song.artist}</p>`;
         }
     );
     
@@ -62,10 +61,10 @@ function generatePlaylist(guardians, songs) {
             return `
             <div class="playlist">
                 <h3>${name}'s Playlist</h3>
-                ${ genrePlaylists[genre].join('') }
+                ${ genrePlaylists[genre] }
             </div>`;
         }
-    ).join("");
+    ).reduce((accumulator, currentValue) => accumulator + currentValue, "");
 
     playlistDisplay.innerHTML = songlistHTML;
 }
