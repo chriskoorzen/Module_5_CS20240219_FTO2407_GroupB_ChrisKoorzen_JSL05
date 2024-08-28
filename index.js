@@ -1,3 +1,5 @@
+"use strict";       // "Be tolerant with others, and strict with yourself." - Marcus Aurelius
+
 // Array of song objects.
 const songs = [
     { title: "Hooked on a Feeling", artist: "Blue Swede", genre: "Pop", youtubeID: "bCHvzQnL8kQ" },
