@@ -31,6 +31,12 @@ const songs = [
     { title: "Stand By Me", artist: "Ben E. King", genre: "R&B", youtubeID: "eJ4i-QbXG54" },
 
     { title: "I'm a Believer", artist: "The Monkees", genre: "Pop", youtubeID: "4PQAqprjOuA" },
+
+    { title: "Ancora", artist: "Ludovico Einaudi", genre: "Instrumental", youtubeID: "mE1aEDmcRMg" },
+    { title: "Kyne's Peace", artist: "Jeremy Soule", genre: "Instrumental", youtubeID: "KSujx7MNhyQ" },
+    { title: "Winterspell", artist: "Two Steps From Hell", genre: "Instrumental", youtubeID: "BzHER3IKCr4" },
+    { title: "Majesty (Instrumental)", artist: "Apashe", genre: "Instrumental", youtubeID: "8D9d9weVQnI" },
+    { title: "Rue des Cascades (Marvin Seifner Remix)", artist: "Yann Tiersen", genre: "Instrumental", youtubeID: "Nsir3n6hxAg" },
 ];
 
 
@@ -41,6 +47,7 @@ const guardians = {
     "Drax": "R&B",
     "Rocket": "Metal",
     "Groot": "Rap",
+    "Mantis": "Instrumental"
 };
 
 // Get reference to container
@@ -71,7 +78,7 @@ function generatePlaylist(guardians, songs) {
         ([name, genre]) => {
             return `<div class="playlist">
                         <h3><a target=”_blank” href="https://www.youtube.com/watch_videos?video_ids=${ playlist[genre].songIDS }" >
-                            ${name}'s Playlist
+                            ${ name[name.length-1] === "s" ? (name + "'") : (name + "'s")} Playlist
                         </a></h3>
                         ${ playlist[genre].playlistHTML }
                     </div>`;
